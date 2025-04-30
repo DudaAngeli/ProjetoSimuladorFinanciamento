@@ -1,6 +1,6 @@
 # Projeto Simulador de Financiamentos
 
-Projeto de simulador de financiamentos para a disciplina de Programação Orientada a Objetos.
+Projeto de simulador de financiamentos feito em Java para a disciplina de Programação Orientada a Objetos.
 
 ## Alunos
 
