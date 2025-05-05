@@ -36,6 +36,19 @@ public class Main{
             totalFinanciamentos += f.calcularPagamentoTotal();
         }
 
+        Financiamento financiamento = getFinanciamento();
+
+        totalImoveis = totalImoveis + financiamento.getValorImovel();
+        totalFinanciamentos = totalFinanciamentos + financiamento.calcularPagamentoTotal();
+
+        bri = NumberFormat.getCurrencyInstance(localBrasil).format(totalImoveis);
+        brt = NumberFormat.getCurrencyInstance(localBrasil).format(totalFinanciamentos);
+
+        System.out.printf("\nO valor total dos imóveis será: %s\n\n", bri);
+        System.out.printf("O valor total dos imóveis financiados será: %s\n", brt);
+    }
+
+    private static Financiamento getFinanciamento() {
         InterfaceUsuario inter = new InterfaceUsuario();
 
         Financiamento financiamento;
@@ -51,14 +64,6 @@ public class Main{
         }
 
         financiamento.mostrarInformacoes();
-
-        totalImoveis = totalImoveis + financiamento.getValorImovel();
-        totalFinanciamentos = totalFinanciamentos + financiamento.calcularPagamentoTotal();
-
-        bri = NumberFormat.getCurrencyInstance(localBrasil).format(totalImoveis);
-        brt = NumberFormat.getCurrencyInstance(localBrasil).format(totalFinanciamentos);
-
-        System.out.printf("\nO valor total dos imóveis será: %s\n\n", bri);
-        System.out.printf("O valor total dos imóveis financiados será: %s\n", brt);
+        return financiamento;
     }
 }
