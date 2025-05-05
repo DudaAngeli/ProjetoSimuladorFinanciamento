@@ -1,10 +1,10 @@
 package src.modelo;
 
 public class Apartamento extends Financiamento{
-    private int vagasGaragem;
-    private int andarApartamento;
+    private double vagasGaragem;
+    private double andarApartamento;
 
-    public Apartamento(double valorImovel, int prazoFinanciamento, double taxaJuros, int vagasGaragem, int andarApartamento) {
+    public Apartamento(double valorImovel, int prazoFinanciamento, double taxaJuros, double vagasGaragem, double andarApartamento) {
         super(valorImovel, prazoFinanciamento, taxaJuros);
         this.vagasGaragem  = vagasGaragem;
         this.andarApartamento = andarApartamento;

@@ -1,14 +1,14 @@
 package src.modelo;
 
 public class Terreno extends Financiamento{
-    private int tipoZona;
+    private double tipoZona;
 
-    public Terreno(double valorImovel, int prazoFinanciamento, double taxaJuros, int tipoZona) {
+    public Terreno(double valorImovel, int prazoFinanciamento, double taxaJuros, double tipoZona) {
         super(valorImovel, prazoFinanciamento, taxaJuros);
         this.tipoZona = tipoZona;
     }
 
-    public int getTipoZona() {
+    public double getTipoZona() {
         return tipoZona;
     }
 
