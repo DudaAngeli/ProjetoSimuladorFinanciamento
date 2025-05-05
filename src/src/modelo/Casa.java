@@ -1,5 +1,7 @@
 package src.modelo;
 
+import src.util.AumentoMaiorDoQueJurosException;
+
 public class Casa extends Financiamento{
     private double areaConstruida;
     private double areaTerreno;
@@ -18,9 +20,30 @@ public class Casa extends Financiamento{
         return areaTerreno;
     }
 
+    private void validarJurosMensal(double limiteJuros, double valorAcrescimo) throws AumentoMaiorDoQueJurosException {
+        if (valorAcrescimo > limiteJuros) {
+            throw new AumentoMaiorDoQueJurosException("Acréscimo maior que a metade dos juros mensais.");
+        }
+    }
+
     @Override
     public double calcularPagamentoMensal() {
-        return (this.getValorImovel() / (this.getPrazoFinanciamento() * 12)) * (1 + (getTaxaJuros() / 12)) + 80;
+        // obter valor dos juros
+        // obter valor do acréscimo
+        double valorAcrescimo = 80;
+        double parcela = this.getValorImovel() / (this.getPrazoFinanciamento() * 12);
+        double taxaMensal = this.getTaxaJuros() / 100 / 12;
+        double jurosMensal = parcela * taxaMensal;
+
+        try {
+            validarJurosMensal(jurosMensal / 2, valorAcrescimo);
+        } catch (AumentoMaiorDoQueJurosException e) {
+            // alterar o valor do acréscimo;
+            System.out.println(e.getMessage());
+            valorAcrescimo = jurosMensal / 2;
+        }
+
+        return parcela + jurosMensal + valorAcrescimo;
     }
 
     @Override
