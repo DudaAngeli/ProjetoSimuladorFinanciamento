@@ -8,3 +8,4 @@ Projeto de simulador de financiamentos feito em Java para a disciplina de Progra
 
 ## Versões
 * 30/04 - Versão 1: Modificações da primeira versão do projeto.
+* 05/05 - Versão 2: Uso de tratamento de exceções.
